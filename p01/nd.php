@@ -28,7 +28,7 @@ echo ":   ";
 
 if ($price > 500 && $price <600){
     echo 'Price is big enough';
-} else if ($price >600 && $price < 700) {
+} elseif ($price >600 && $price < 700) {
     echo 'OMG!';
 } else {echo 'Price is ok';}
 
