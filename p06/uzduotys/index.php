@@ -39,11 +39,22 @@ $sth = $db->prepare($sql);
     $sth->bindParam(':email', $email);
     $sth->bindParam(':name', $name);
     
-    $username = $_SESSION['username'];
-    //neaisku kodel Undefined index: username jeigu viskas defined!
-    $password = $_SESSION['password'];
-    $email = $_SESSION['email'];
-    $name = $_SESSION['name'];
+    $username = null;
+        if (isset ($_SESSION['username'])){
+    $username = $_SESSION['username'];}
+
+    $password = null;
+        if (isset ($_SESSION['password'])){
+    $password = $_SESSION['password'];}
+        
+    $email = null;
+    if (isset ($_SESSION['email'])){
+    $email = $_SESSION['email'];}
+    
+    $name = null;
+     if (isset ($_SESSION['name'])){
+    $name = $_SESSION['name'];}
+        
     
        if ($sth->execute()){
             header("Location: login.php");}
