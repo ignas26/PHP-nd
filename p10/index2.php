@@ -24,15 +24,14 @@ $drink = new Drink();
 class Coffee extends Drink
 {
     
-        public function __construct($coffee){
-       $this->getDrinkName();
-            //arba parent::getDrinkName();
+        public function __construct(){
+       $this->setDrinkName("COFFEE");
     }
     
     
 }
 
-//neaisku, ka daryti kai konstruktorius yra tik vaikineje klaseje
+
 
 $coffee = new Coffee;
 echo "My new drink is:".$coffee->getDrinkName();

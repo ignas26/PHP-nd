@@ -8,8 +8,8 @@ private $date = null;
    
     
 
-      public function addItem() {
-//array_push($items, ShoppingCartItem $id);
+      public function addItem($item) {
+ array_push($this->items, $item);
     }
 
     public function getItems(){
@@ -17,9 +17,6 @@ private $date = null;
     }
 
 }
-
-    $cart = new ShoppingCart;
-
 
 
 class ShoppingCartItem{
@@ -31,7 +28,7 @@ class ShoppingCartItem{
 
 }
 
-
+$cart = new ShoppingCart;
     $item = new ShoppingCartItem;
     $item->name = "Tarchunas";
     $item->price = 1.5;
@@ -43,5 +40,4 @@ class ShoppingCartItem{
 
 
 
-//nepabaigta
 ?>
