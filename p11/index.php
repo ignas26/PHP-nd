@@ -1,6 +1,6 @@
 <?php
 
-class Student{
+class Student {
     
     public $student_no = null;
     public $surname = null;
@@ -11,21 +11,31 @@ public function __construct($student_no, $surname, $forename){
    $this->surname = $surname;
    $this->forename = $forename;
     }
-public function save(){
-     include_once('duombaze.php');
-}
+ 
     
+public function save(){
+     include('duombaze.php');
+
+
+         $sql = "
+    INSERT INTO students (student_no, surname, forename) VALUES (:student_no, :surname, :forename)";
+
+        
+            $sth = $pdo->prepare($sql);
+        
+            $sth->execute([
+                'student_no' => $this->student_no,
+                'surname' => $this->surname,
+                'forename' => $this->forename
+            ]);
+}
 }
 
 $students = new Student("20060106", "Zlatkus", "Ignas");
-echo $students->student_no;
-echo $students->surname;
-echo $students->forename;
+$students->save();
 
 
-
-
-class Module{
+class Module {
     public $module_code = null;
     public $module_name = null;
     
@@ -35,18 +45,26 @@ class Module{
     }
     
     public function save(){
-     include_once('duombaze.php');
+     include('duombaze.php');
+                 
+        $sql = "
+    INSERT INTO modules (module_code, module_name) VALUES (:module_code, :module_name)";
+
+            $sth = $pdo->prepare($sql);
+        
+            $sth->execute([
+                'module_code' => $this->module_code,
+                'module_name' => $this->module_name
+            ]);
 }
 }
 
 $modules = new Module("CM0005", "Coding");
-echo $modules->module_code;
-echo $modules->module_name;
+$modules->save();
 
 
 
-
-class Mark{
+class Mark {
     public $student_no = null;
     public $module_code = null;
     public $mark = null;
@@ -58,14 +76,24 @@ class Mark{
     }
     
     public function save(){
-    include_once('duombaze.php');
-}
+        
+        include('duombaze.php');
+        
+         $sql = "
+    INSERT INTO marks (student_no, module_code, mark) VALUES (:student_no, :module_code, :mark)";
 
+            $sth = $pdo->prepare($sql);
+        
+            $sth->execute([
+                'student_no' => $this->student_no,
+                'module_code' => $this->module_code,
+                'mark' => $this->mark
+            ]);    
+}
 }
 
 $marks = new Mark("20060106", "CM0005", "25");
-echo $marks->student_no;
-echo $marks->module_code;
-echo $marks->mark;
+$marks->save();
+
 
 ?>
