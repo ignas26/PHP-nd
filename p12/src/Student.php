@@ -1,5 +1,7 @@
 <?php
-namespace src{
+namespace src;
+use PDO;
+
    class Student {
     
     public $student_no = null;
@@ -37,9 +39,5 @@ public function save(){
                 'forename' => $this->forename
             ]);
 }
-}
-
-$students = new Student("20060106", "Zlatkus", "Ignas");
-$students->save();
 }
 ?>

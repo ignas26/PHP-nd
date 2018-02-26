@@ -1,5 +1,7 @@
 <?php 
-namespace src{
+namespace src;
+use PDO;
+
 class Module {
     public $module_code = null;
     public $module_name = null;
@@ -30,8 +32,5 @@ class Module {
                 'module_name' => $this->module_name
             ]);
 }
-}
-$modules = new Module("CM0005", "Coding");
-$modules->save();
 }
 ?>

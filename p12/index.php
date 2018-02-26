@@ -5,12 +5,13 @@
     use src\Module;
     use src\Mark;
 
-    $student = new Student;
+    $student = new Student("20060106", "Zlatkus", "Ignas");
     echo $student->getInfo();
-    $module = new Module;
+    $student->save();
+    $module = new Module("CM0005", "Coding");
     echo $module->getInfo();
-    $mark = new Module;
+    $module->save();
+    $mark = new Mark("20060106", "CM0005", "25");
     echo $mark->getInfo();
-
-//Fatal error: Uncaught Error: Class 'src\PDO' not found in C:\xampp\htdocs\backEnd\nd\p12\src\Student.php:26. Module ir Mark tas pats.
+    $mark->save();
 ?>

@@ -1,6 +1,7 @@
 <?php
-   
-namespace src{
+namespace src;
+use PDO;
+
    class Mark {
     public $student_no = null;
     public $module_code = null;
@@ -35,9 +36,5 @@ namespace src{
                 'mark' => $this->mark
             ]);    
 }
-}
-
-$marks = new Mark("20060106", "CM0005", "25");
-$marks->save();
 }
 ?>
