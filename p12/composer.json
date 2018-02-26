@@ -1,0 +1,15 @@
+{
+    "name": "ignas/p12",
+    "authors": [
+        {
+            "name": "ignas26",
+            "email": "ignas.zlatkus@gmail.com"
+        }
+    ],
+    "require": {},
+        "autoload": {
+          "psr-4": {
+              "src\\" : "src"
+          }
+      }
+}
