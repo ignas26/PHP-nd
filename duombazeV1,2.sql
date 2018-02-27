@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2018 at 11:27 PM
+-- Generation Time: Feb 27, 2018 at 03:46 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -43,6 +43,21 @@ INSERT INTO `author` (`id`, `name`, `surname`, `email`) VALUES
 (10, 'vardenis', 'pavardenis', 'vard.pavard@yahoo.com'),
 (11, 'auksinis', 'kardas', 'goldensword@gmail.com'),
 (12, 'john', 'doe', 'jon.snow@got.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chuckster`
+--
+
+CREATE TABLE `chuckster` (
+  `id` int(11) NOT NULL,
+  `category` varchar(250) COLLATE utf8_german2_ci NOT NULL,
+  `icon_url` varchar(250) COLLATE utf8_german2_ci NOT NULL,
+  `id_varchar` varchar(250) COLLATE utf8_german2_ci NOT NULL,
+  `url` varchar(250) COLLATE utf8_german2_ci NOT NULL,
+  `value` varchar(250) COLLATE utf8_german2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 -- --------------------------------------------------------
 
@@ -184,6 +199,12 @@ ALTER TABLE `author`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `chuckster`
+--
+ALTER TABLE `chuckster`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `marks`
 --
 ALTER TABLE `marks`
@@ -231,16 +252,22 @@ ALTER TABLE `author`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `chuckster`
+--
+ALTER TABLE `chuckster`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `marks`
 --
 ALTER TABLE `marks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `persons`
@@ -258,7 +285,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
