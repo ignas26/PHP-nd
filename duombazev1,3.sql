@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2018 at 03:46 PM
+-- Generation Time: Feb 28, 2018 at 03:21 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -57,6 +57,19 @@ CREATE TABLE `chuckster` (
   `id_varchar` varchar(250) COLLATE utf8_german2_ci NOT NULL,
   `url` varchar(250) COLLATE utf8_german2_ci NOT NULL,
   `value` varchar(250) COLLATE utf8_german2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `author` varchar(250) COLLATE utf8_german2_ci NOT NULL,
+  `comment` text COLLATE utf8_german2_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 -- --------------------------------------------------------
@@ -205,6 +218,12 @@ ALTER TABLE `chuckster`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `marks`
 --
 ALTER TABLE `marks`
@@ -256,6 +275,12 @@ ALTER TABLE `author`
 --
 ALTER TABLE `chuckster`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `marks`
