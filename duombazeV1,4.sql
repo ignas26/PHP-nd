@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2018 at 03:21 PM
+-- Generation Time: Mar 01, 2018 at 11:21 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -70,6 +70,26 @@ CREATE TABLE `comments` (
   `author` varchar(250) COLLATE utf8_german2_ci NOT NULL,
   `comment` text COLLATE utf8_german2_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `author`, `comment`, `created_at`) VALUES
+(1, 'Prof. Betty Stracke', 'Et inventore voluptatem est et quis velit. Eligendi voluptas qui nisi et. Nostrum quia magnam eius eaque. Rerum labore et voluptate ad. Aut est quo veniam enim.', '2009-04-17 21:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `laiskai`
+--
+
+CREATE TABLE `laiskai` (
+  `id` int(11) NOT NULL,
+  `gavejas` varchar(100) COLLATE utf8_german2_ci NOT NULL,
+  `tema` varchar(100) COLLATE utf8_german2_ci NOT NULL,
+  `text` text COLLATE utf8_german2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 -- --------------------------------------------------------
@@ -224,6 +244,12 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `laiskai`
+--
+ALTER TABLE `laiskai`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `marks`
 --
 ALTER TABLE `marks`
@@ -280,7 +306,13 @@ ALTER TABLE `chuckster`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `laiskai`
+--
+ALTER TABLE `laiskai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `marks`
