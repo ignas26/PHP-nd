@@ -1,57 +1,6 @@
-
 <?php
 require_once('vendor/autoload.php');
 
-//$faker = Faker\Factory::create();
-//
-//$author = $faker->name; 
-//$authorPost = $faker->text;
-//$time = $faker->date($format = 'Y-m-d', $max = 'now');
-
-
-//function nameGenerator($author, $authorPost, $time){
-//    global $authorPost;
-//    global $author;
-//    global $time;
-    for ($i=0; $i < 1000; $i++) {
-//echo $author, "\n";
-//echo $authorPost, "\n";
-//echo $time, "\n";
-$faker = Faker\Factory::create();
-
-$author = $faker->name; 
-$authorPost = $faker->text;
-$time = $faker->date($format = 'Y-m-d', $max = 'now');
-
-$commented = new Komentaras;
-$commented->author=$faker->name;
-$commented->authorPost=$faker->text;
-$commented->time=$faker->date($format = 'Y-m-d', $max = 'now');
-$commented->save();
-
-}
-//}
-//nameGenerator($author, $authorPost, $time);
-
-//nesigauna is ciklo pasiimti rezultato t.y. 1000 irasu (tik viena pagal default).
-
-
-
-
-class Komentaras {
- 
-public $author = null;
-public $authorPost = null;
-public $time = null;
-
-
-public function __construct($author, $authorPost, $time){
-$this->author = $author;
-$this->authorPost = $authorPost;
-$this->time = $time;
-}
-   
-public function save(){
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -64,15 +13,68 @@ INSERT INTO comments (author, comment, created_at) VALUES (:author, :comment, :c
     
             $sth = $pdo->prepare($sql);
   
-            $sth->execute([
-                'author' => $this->author,
-                'comment' => $this->authorPost,
-                'created_at' => $this->time,
-            ]);
-}
-}
+$faker = Faker\Factory::create();
 
-//$commented = new Komentaras($author, $authorPost, $time);
-//$commented->save();
+// Pastaba: 1000 irasu pakeista i 30, kadangi paduodant daugiau nei 50 i duombaze phpMyAdmin pradeda puliuoti ir meta timeout, neiseina istrinti iskarto visu irasu, error 
+// "Warning: a form on this page has more than 1000 fields. On submission, some of the fields might be ignored, due to PHP's max_input_vars configuration." Pakeiciau php.ini, // bet nepadejo vistiek.
+
+for ($i=0; $i < 30; $i++) {
+            $comments=[
+                'author' => $faker->name,
+                'comment' => $faker->text,
+                'created_at' => $faker->date($format = 'Y-m-d', $max = 'now')];
+     $sth->execute($comments); }
+
+
+class Database{
+    private $host = "localhost";
+    private $db_name = "duombaze";
+    private $username = "root";
+    private $password = "";
+    public $conn;
+    public function getConnection(){
+        $this->conn = null;
+        try{
+            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->conn->exec("set names utf8");
+        }catch(PDOException $exception){
+            echo "Connection error: " . $exception->getMessage(); }
+        return $this->conn; } }
+
+class Komentarai{
+    private $db = null;
+    public function __construct($db){
+        $this->db = $db;
+    }
+    public function getAllComments(){
+        $sql = "SELECT * FROM comments";
+        $sth = $this->db->prepare($sql);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_OBJ);
+    } };
+
+$database = new Database();
+$db = $database->getConnection();
+$commented = new Komentarai($db);
+$allComments = $commented->getAllComments();
+
+// required headers
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+
+echo json_encode($allComments);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
