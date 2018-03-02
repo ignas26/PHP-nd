@@ -25,7 +25,6 @@ for ($i=0; $i < 30; $i++) {
                 'created_at' => $faker->date($format = 'Y-m-d', $max = 'now')];
      $sth->execute($comments); }
 
-
 class Database{
     private $host = "localhost";
     private $db_name = "duombaze";
