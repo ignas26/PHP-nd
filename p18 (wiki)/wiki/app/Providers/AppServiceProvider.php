@@ -14,11 +14,9 @@ class AppServiceProvider extends ServiceProvider
     
     public function boot()
     {
-            View::composer(
-            'layout.main', 'App\Http\ViewComposers\DataComposer'
-        );
-            View::composer(
-            'layout.main', 'App\Http\ViewComposers\DataComposer2'
+View::share('raktas', 'kintamsis');
+    View::composer(
+            'atskiras.index', 'App\Http\ViewComposers\DataComposer'
         );
     }
 

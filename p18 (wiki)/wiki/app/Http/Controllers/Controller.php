@@ -10,14 +10,21 @@ use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-}
+    public function main(){
 
-class Controller2 extends Controller
-{
-    public function testAction(Request $request){
-        $data = $request->input('input');
-        var_dump($data);
-        return view('index');
+        $reiksme = $this->paskaiciuok(100);
+
+        return view('atskiras.index', array(
+            'kintamsis' => $reiksme
+        )); }
+    
+        public function main2(){
+        echo "kazkas2";
+    }
+
+
+    private function paskaiciuok($a){
+        return $a * 2.5;
     }
 }
+?>

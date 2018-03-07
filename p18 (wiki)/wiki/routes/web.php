@@ -11,16 +11,20 @@
 |
 */
 
-Route::any('/','Controller2@testAction');
+Route::get('/page', 'Controller@main');
+Route::get('/', 'MainController@index');
 
-Route::get('/',function(){
-    return view('layout.main');
-});
 
-Route::get('/', function(){
-    return view('atskiras.index');
-});
 
-Route::get('atskiras.index', function(){
-    return view('atskiras.danger');
-});
+
+//Route::get('/',function(){
+//    return view('layout.main');
+//});
+//
+//Route::get('/', function(){
+//    return view('atskiras.index');
+//});
+//
+//Route::get('atskiras.index', function(){
+//    return view('atskiras.danger');
+//});

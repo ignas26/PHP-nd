@@ -1,36 +1,40 @@
-    @extends('layout.main');
-        @section('title', 'wiki')
-   
-    
+@extends('layout.main');
+
+@section('title')
+titulinis puslapis
+@endsection
+
     @section('sidebar')
     @parent
-    <p>turi matytis sidebar</p>
 @endsection
     
 @section('content')
-    <div class="alert alert-success">sveiki atvyke</div> 
+paskaiciavo :{{ $kintamsis }}
+    <p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, et quia facere vero veritatis eveniet dignissimos tempora corrupti sapiente aliquid. Reiciendis mollitia alias qui recusandae aspernatur soluta neque porro ea.
+    </p>
 @endsection
 
 @component('atskiras.danger')
     @slot('title')
-    uzdrausta
+
     @endslot
-    negalima pasiekti turinio
+
 @endcomponent
 
-@section('atskiras')
+@section('atskiras.index')
+ @csrf
   <form action="" method="get">
-    @csrf
     <input type="text" name="input" id="">
     <input type="submit" value="Done">
   </form>
 @endsection
 
 
-<!--
+
 @push('scripts')
     <script src="/example.js"></script>
 @endpush
--->
+
 
 
