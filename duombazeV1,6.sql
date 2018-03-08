@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2018 at 04:50 PM
+-- Generation Time: Mar 08, 2018 at 03:58 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -58,6 +58,17 @@ CREATE TABLE `chuckster` (
   `url` varchar(250) COLLATE utf8_german2_ci NOT NULL,
   `value` varchar(250) COLLATE utf8_german2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
+
+--
+-- Dumping data for table `chuckster`
+--
+
+INSERT INTO `chuckster` (`id`, `category`, `icon_url`, `id_varchar`, `url`, `value`) VALUES
+(1, '', 'https://assets.chucknorris.host/img/avatar/chuck-norris.png', 'v6-sfo2MQiqTNvlZxJtwvQ', 'https://api.chucknorris.io/jokes/v6-sfo2MQiqTNvlZxJtwvQ', 'Chuck Norris\' eggs lay chickens.'),
+(2, '', 'https://assets.chucknorris.host/img/avatar/chuck-norris.png', 'wYElYsATTVWzI-3__zGwPw', 'https://api.chucknorris.io/jokes/wYElYsATTVWzI-3__zGwPw', 'Chuck norris died 20 years ago but death jst hasnt built up the courage to tell him yet'),
+(3, '', 'https://assets.chucknorris.host/img/avatar/chuck-norris.png', 'zudeTrzOQZe4BzSea_mkIg', 'https://api.chucknorris.io/jokes/zudeTrzOQZe4BzSea_mkIg', 'Got Chuck Norris???? You Better not.......'),
+(4, '', 'https://assets.chucknorris.host/img/avatar/chuck-norris.png', '3zA8rnrrSgCJMwlxB8XJPw', 'https://api.chucknorris.io/jokes/3zA8rnrrSgCJMwlxB8XJPw', 'Chuck Norris\' middle name is \'Eywa\'.'),
+(5, '', 'https://assets.chucknorris.host/img/avatar/chuck-norris.png', 'OCD51PFURCu4oxvueu6WAA', 'https://api.chucknorris.io/jokes/OCD51PFURCu4oxvueu6WAA', 'Chuck Norris doesn\'t get ready for work in the morning. Work gets ready for Chuck Norris.');
 
 -- --------------------------------------------------------
 
@@ -142,6 +153,20 @@ INSERT INTO `modules` (`id`, `module_code`, `module_name`, `parent_id`) VALUES
 (2, 'CM0002', 'Programming Language', 0),
 (3, 'CM0003', 'Operating Systems', 0),
 (4, 'CM0004', 'Graphics', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `names`
+--
+
+CREATE TABLE `names` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf8_german2_ci NOT NULL,
+  `date_created` text COLLATE utf8_german2_ci NOT NULL,
+  `stats` text COLLATE utf8_german2_ci NOT NULL,
+  `records` text COLLATE utf8_german2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 -- --------------------------------------------------------
 
@@ -255,6 +280,12 @@ ALTER TABLE `modules`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `names`
+--
+ALTER TABLE `names`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `persons`
 --
 ALTER TABLE `persons`
@@ -293,13 +324,13 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT for table `chuckster`
 --
 ALTER TABLE `chuckster`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1125;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `laiskai`
@@ -318,6 +349,12 @@ ALTER TABLE `marks`
 --
 ALTER TABLE `modules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `names`
+--
+ALTER TABLE `names`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `persons`
