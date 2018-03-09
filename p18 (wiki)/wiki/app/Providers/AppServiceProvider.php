@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
 View::share('raktas', 'kintamsis');
     View::composer(
-            'atskiras.index', 'App\Http\ViewComposers\DataComposer'
+            'layout.main', 'App\Http\ViewComposers\DataComposer'
         );
     }
 
