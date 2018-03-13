@@ -11,9 +11,10 @@
 |
 */
 
+Route::get('/', 'PagesController@index');
+
 Auth::routes();
 
-Route::get('/', 'PagesController@index');
 //Route::get('/', function () {
     //return view('welcome');
 //});

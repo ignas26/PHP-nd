@@ -1,5 +1,14 @@
  @extends('layouts.app') 
  @section('content')
+  @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -20,7 +29,7 @@
                               </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Conntet</label>
+                    <label for="exampleFormControlTextarea1">Content</label>
                     <textarea class="form-control" id="content" name="content" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Create Post</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Page;
 
 class PagesController extends Controller
@@ -25,7 +26,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create');
     }
 
     /**
@@ -36,6 +37,12 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
+    
+                $validatedData = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+    
     $data = $request->all();
     $page = new Page;
     $page->title = $request->input('title');

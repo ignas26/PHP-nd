@@ -25,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-
+    return view('categories.create');
     }
 
     /**
@@ -36,12 +36,15 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-    $data = $request->all();
+        $validatedData = $request->validate([
+            'id' => 'required|unique:categories|integer',
+            'name' => 'required',
+            'position' => 'required',
+        ]);
     $category = new Category;
-    $category->title = $request->input('title');
-    $category->content = $request->input('content');
-    $category->category = $request->input('category');
-    $category->user = Auth::id();
+    $category->id = $request->input('id');
+    $category->name = $request->input('name');
+    $category->position = $request->input('position');
     $category->save();
     return redirect(route('categories.index'));
     }
@@ -54,8 +57,6 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-                    $category = Category::find($id);
-    return view('categories.show', ['category' => $category ]);
     }
 
     /**

@@ -1,25 +1,25 @@
-    @extends('layouts.app')
-    @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                @forelse($categories as $category) 
-                <div class="card text-center mt-5">
-                        <div class="card-header">
-                                  <a href={{ route('categories.show', ['id' => $category->id])}} > {{ $category->title }} </a>
-                        </div>
-                        <div class="card-body">
-                          {{--  <h5 class="card-title">Special title treatment</h5>  --}}
-                          <p class="card-text">{{ $category->content }}</p>
-                        </div>
-                        <div class="card-footer text-muted">
-                          {{ $category->created_at }}
-                        </div>
-                </div>
-                @empty
-                    <p>Posts not found...</p>
-                @endforelse
-            </div>
-        </div>
-    </div>
-    @endsection
+ @extends('layouts.app') 
+ @section('content')
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Created_at</th>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse($categories as $category)
+        <tr>
+            <td>{{$category->id}}</td>
+            <td>{{$category->name}}</td>
+            <td>{{$category->position}}</td>
+            <td>{{$category->created_at}}</td>
+        </tr>
+        @empty
+        <p>Category not found</p>
+        @endforelse
+    </tbody>
+</table>
+@endsection
