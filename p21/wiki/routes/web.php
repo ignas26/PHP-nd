@@ -15,11 +15,13 @@ Route::get('/', 'PagesController@index');
 
 Auth::routes();
 
+
 //Route::get('/', function () {
     //return view('welcome');
 //});
 
-Route::resources([
-    'categories' => 'CategoriesController',
-    'pages' => 'PagesController'
-]);
+//Route::get('/', 'CategoriesController@index');
+
+Route::resource('pages','PagesController');
+
+Route::resource('categories','CategoriesController');
