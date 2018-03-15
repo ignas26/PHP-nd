@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Page;
 use App\Category;
 
+
 class PagesController extends Controller
 {
     /**
@@ -86,7 +87,6 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
@@ -97,7 +97,6 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
     
         public function __construct(){
