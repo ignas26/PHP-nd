@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2018 at 03:14 PM
+-- Generation Time: Mar 17, 2018 at 05:11 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -43,7 +43,9 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `name`, `position`, `created_at`, `updated_at`) VALUES
 (1, 'gyvunai', 1, '2018-03-15 11:57:40', '2018-03-15 11:57:40'),
 (2, 'automobiliai', 2, '2018-03-15 11:57:50', '2018-03-15 11:57:50'),
-(3, 'zmones', 3, '2018-03-15 11:58:00', '2018-03-15 11:58:00');
+(3, 'zmones', 3, '2018-03-15 11:58:00', '2018-03-15 11:58:00'),
+(55, 'ignas', 222, '2018-03-16 19:38:55', '2018-03-16 19:38:55'),
+(9000, 'ignas', 5, '2018-03-17 13:20:28', '2018-03-17 13:20:28');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,9 @@ CREATE TABLE `pages` (
 INSERT INTO `pages` (`id`, `title`, `content`, `category`, `user`, `created_at`, `updated_at`) VALUES
 (16, 'suo', 'loja', 1, 12, '2018-03-15 11:59:08', '2018-03-15 11:59:08'),
 (17, 'masina', 'vaziuoja', 2, 12, '2018-03-15 11:59:27', '2018-03-15 11:59:27'),
-(18, 'visi', 'vaiksto', 3, 12, '2018-03-15 11:59:41', '2018-03-15 11:59:41');
+(18, 'visi', 'vaiksto', 3, 12, '2018-03-15 11:59:41', '2018-03-15 11:59:41'),
+(19, 'visi', 'eina', 3, 13, '2018-03-16 19:38:29', '2018-03-16 19:38:29'),
+(21, 'studentas', 'php', 55, 13, '2018-03-17 13:10:32', '2018-03-17 13:10:32');
 
 -- --------------------------------------------------------
 
@@ -126,7 +130,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Ignas', 'ignas.zlatkus@gmail.com', '$2y$10$NYzRSrF2k9wS3KS.h1zTCevSL3MJrXxMox9VrOW9I5l8tPKGskunK', 'DZ7UtBSer3mtvf6XnmVg8NEfdY2FIkucrFFGcOlhr8gk3CnjUom3Z9vwoRmn', '2018-03-14 18:43:44', '2018-03-14 18:43:44');
+(12, 'Ignas', 'ignas.zlatkus@gmail.com', '$2y$10$NYzRSrF2k9wS3KS.h1zTCevSL3MJrXxMox9VrOW9I5l8tPKGskunK', '8IkP5vodcvU22Ewic9yA6Q4ny0oHLx6sUA7MWsH5elEhAhCAhBVWAfBSR5jE', '2018-03-14 18:43:44', '2018-03-14 18:43:44'),
+(13, 'admin', 'ignass.zlatkus@gmail.com', '$2y$10$VsL5DBz3qpuCfVomE8pC6.MjcvSOwyP3gWc5pSPvsyEN3CExNQ8w6', 'HogXGRr74Wu93GODWJnFENHFoMdPj7JGaQO48v45a2NPaUkIAJ3j5pkgss5O', '2018-03-16 19:37:28', '2018-03-16 19:37:28');
 
 --
 -- Indexes for dumped tables
@@ -172,7 +177,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=556;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9001;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -184,13 +189,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
