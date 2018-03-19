@@ -28,3 +28,5 @@ Route::resource('pages','PagesController');
 Route::resource('categories','CategoriesController');
 
 Route::get('admin/index', 'AdminController@index')->name('admctrl');
+
+Route::post('search','PagesController@search')->name('search');

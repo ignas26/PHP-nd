@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2018 at 05:11 PM
+-- Generation Time: Mar 19, 2018 at 01:08 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -130,8 +130,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(12, 'Ignas', 'ignas.zlatkus@gmail.com', '$2y$10$NYzRSrF2k9wS3KS.h1zTCevSL3MJrXxMox9VrOW9I5l8tPKGskunK', '8IkP5vodcvU22Ewic9yA6Q4ny0oHLx6sUA7MWsH5elEhAhCAhBVWAfBSR5jE', '2018-03-14 18:43:44', '2018-03-14 18:43:44'),
-(13, 'admin', 'ignass.zlatkus@gmail.com', '$2y$10$VsL5DBz3qpuCfVomE8pC6.MjcvSOwyP3gWc5pSPvsyEN3CExNQ8w6', 'HogXGRr74Wu93GODWJnFENHFoMdPj7JGaQO48v45a2NPaUkIAJ3j5pkgss5O', '2018-03-16 19:37:28', '2018-03-16 19:37:28');
+(12, 'Ignas', 'ignas.zlatkus@gmail.com', '$2y$10$NYzRSrF2k9wS3KS.h1zTCevSL3MJrXxMox9VrOW9I5l8tPKGskunK', '0gWB0YrYv5SjNjmZrqHXAd2xRc5OcWcFKRQB3ySW7nggmyib4QYTVPZJTthU', '2018-03-14 18:43:44', '2018-03-14 18:43:44');
 
 --
 -- Indexes for dumped tables

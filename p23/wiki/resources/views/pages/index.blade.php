@@ -1,7 +1,15 @@
  @extends('layouts.app') 
  @section('content')
    @auth
-   <div class="container-fluid">  <br>
+   <div class="container-fluid">
+   <form action={{ route( 'search') }} method="POST" class="form-inline justify-content-center">
+    @csrf
+<input type="text" class="form-inline" placeholder="type in your request" name="searchword">
+  <button class="btn btn-success" type="submit">press to search</button>
+   </form>
+</div>
+   
+   <div class="container-fluid"><br>
     <div class="row justify-content-center">
 <div class="col-md-9"> 
             @forelse($pages as $page)

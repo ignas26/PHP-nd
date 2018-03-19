@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Page;
 use App\Category;
 use Illuminate\Contracts\Auth\Access\Gate;
+//use Illuminate\Support\Facades\DB;
 
 
 class PagesController extends Controller
@@ -67,6 +68,7 @@ class PagesController extends Controller
      */
     public function show($id)
     {
+        
     }
 
     /**
@@ -89,7 +91,6 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
@@ -102,6 +103,20 @@ class PagesController extends Controller
     {
         //
     }
+     public function search(Request $request)
+    {
+    
+    $this->middleware('auth');
+    $this->authorize('search', Page::class);
+         $categories = Category::orderBy('position')->get();
+         if($request->has('searchword')) {
+         $result = $request->input('searchword');
+         $pages=Page::where('title', 'LIKE', '%'.$result.'%')->paginate(4);
+            }
+         
+         return view('pages.index', ['pages' => $pages, 'categories' => $categories]);
+    }
+    
     
         public function __construct(){
           $this->middleware('auth', ['except' => ['index','show']]);

@@ -56,4 +56,15 @@ class PagePolicy
     {
         //
     }
+    
+    
+    public function search (User $user)
+    { if($user->name==='admin'){
+            return true;
+
+    }else{
+            return false;
+        }
+    }
+    
 }
