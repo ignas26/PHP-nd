@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Page;
 use App\Category;
 use Illuminate\Contracts\Auth\Access\Gate;
-//use Illuminate\Support\Facades\DB;
 
 
 class PagesController extends Controller
