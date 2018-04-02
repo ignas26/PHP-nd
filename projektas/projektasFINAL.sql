@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2018 at 02:44 PM
+-- Generation Time: Apr 03, 2018 at 01:41 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -42,11 +42,26 @@ CREATE TABLE `answers` (
 --
 
 INSERT INTO `answers` (`id`, `user_id`, `conversation_id`, `content`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'this not easy', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(2, 1, 2, 'this hard', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(3, 2, 3, 'this medium', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(4, 4, 4, 'this easy', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(5, 3, 1, 'this very easy', '2018-03-29 09:05:54', '2018-03-29 09:05:54');
+(1, 1, 1, 'ko tu dabar nori atsakymo kai čia subjektyviai kiekvienam. Žėk pagal galimybes, kaip compas išveža. Brackets \"lengviausia\" kas liečia našumą, VisualStudio jau daugiau galios reikalauja, o phpstorm išvis mišios jeigu compas senolis', '2018-04-02 19:39:06', '2018-04-02 19:39:06'),
+(2, 1, 2, 'tai tiesiog xamppas pagrinde, cmd terminalas dar ir smegenine gera ;)', '2018-04-02 19:39:06', '2018-04-02 19:39:06'),
+(3, 2, 3, 'šitą iššigooglink jau gal pats kaipnors, rankos nenukris', '2018-04-02 19:39:06', '2018-04-02 19:39:06'),
+(4, 4, 4, 'Hardcore. Čia jau profų reik klaust. Kur forumo protai? Nes man irgi tas json tikras peilis...', '2018-04-02 19:39:06', '2018-04-02 19:39:06'),
+(5, 3, 1, 'yzi gi. Brackets isirasyk ir viskas. Xamppa dar gali, nes veliau tikrai reikes. Bet pirmai pradziai brackets. Uz savaites gal isvis jau mesi ta codinima, tai kam cia prisirasyt softo kai dar neaisku nieko.', '2018-04-02 19:39:06', '2018-04-02 19:39:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attachments`
+--
+
+CREATE TABLE `attachments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `conversation_id` int(10) UNSIGNED NOT NULL,
+  `path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `original_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -57,6 +72,7 @@ INSERT INTO `answers` (`id`, `user_id`, `conversation_id`, `content`, `created_a
 CREATE TABLE `channels` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rowcount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -65,16 +81,16 @@ CREATE TABLE `channels` (
 -- Dumping data for table `channels`
 --
 
-INSERT INTO `channels` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'FrontEnd', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(2, 'BackEnd', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(3, 'HTML', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(4, 'CSS', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(5, 'JavaScript', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(6, 'JS Frameworks', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(7, 'PHP', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(8, 'Python', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(9, 'PHP frameworks', '2018-03-29 09:05:54', '2018-03-29 09:05:54');
+INSERT INTO `channels` (`id`, `title`, `rowcount`, `created_at`, `updated_at`) VALUES
+(1, 'FrontEnd įvadas', 'frontend-ivadas', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(2, 'BackEnd įvadas', 'backend-ivadas', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(3, 'HTML/CSS', 'htmlcss', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(4, 'PHP', 'php', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(5, 'PHP frameworks', 'php-frameworks', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(6, 'Javascript', 'javascript', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(7, 'JS Frameworks', 'js-frameworks', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(8, 'Python', 'python', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(9, 'Kitos kalbos', 'kitos-kalbos', '2018-04-02 19:39:05', '2018-04-02 19:39:05');
 
 -- --------------------------------------------------------
 
@@ -97,11 +113,11 @@ CREATE TABLE `conversations` (
 --
 
 INSERT INTO `conversations` (`id`, `user_id`, `channel_id`, `title`, `content`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, 'Why is this not working???', 'nobody said this was going to be easy and blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(2, 1, 2, 'Pls help???', 'nobody said this was going to be easy and blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(3, 1, 2, 'Finally solved it', 'nobody said this was going to be easy and blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(4, 1, 2, 'Done', 'nobody said this was going to be easy and blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah', '2018-03-29 09:05:54', '2018-03-29 09:05:54'),
-(5, 1, 2, 'Well done', 'nobody said this was going to be easy and blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah', '2018-03-29 09:05:54', '2018-03-29 09:05:54');
+(1, 2, 1, 'Codinimo toolsai', 'kokios yra geriausios FrontEnd codinimo priemonės, gal kas pasakytų? ar reikės spėlioti? Nes googlinantis matau dauuug variantų ir neaišku, kuris geriausias būtų. Atomas?', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(2, 1, 2, 'BackEnd codinimo toolsai', 'Kaip su BackEnd codinimo priemonėmis? xamppo reikės vėl? kaip ten su serveriais išvis situacija? Ar toolsai tokie patys kaip ir Frontendo atveju ar reikia atsisiųsti naujus kažkokius?', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(3, 1, 3, 'Flexbox pūliuoja help pls', 'zmones as naujokas codinime tik 2 savaites, ko tai uzlinko flexbox ir iskraipe vaizda visa, visi elementai susoko vienas ant kito, nzn kaip debuginti, vienzo padekit kas galit!!! tik greiciau nes tuoj nd tikrins', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(4, 1, 4, 'Restful API + Json encodinimo error', 'suluzo visas backendas kai paleidau kad encodintu i json formata, nzn ka daryti padekit. Aciu', '2018-04-02 19:39:05', '2018-04-02 19:39:05'),
+(5, 1, 4, 'PDO login info', 'tai pdo info visa is serverio ateina ar kaip cia yra? nesujungia manes ir neatvaizduoja nieko blemba.', '2018-04-02 19:39:05', '2018-04-02 19:39:05');
 
 -- --------------------------------------------------------
 
@@ -116,13 +132,6 @@ CREATE TABLE `likes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `likes`
---
-
-INSERT INTO `likes` (`id`, `answer_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2018-03-29 09:33:44', '2018-03-29 09:33:44');
 
 -- --------------------------------------------------------
 
@@ -141,15 +150,17 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2018_03_23_231940_create_channels_table', 1),
-(4, '2018_03_24_001025_create_conversations_table', 1),
-(5, '2018_03_24_001050_create_answers_table', 1),
-(6, '2018_03_26_185837_add_foreign_to_conversations_table', 1),
-(7, '2018_03_26_201853_add_foreign_to_answers_table', 1),
-(8, '2018_03_28_112501_create_likes_table', 1),
-(9, '2018_03_28_115218_add_foreign_to_likes_table', 1);
+(125, '2014_10_12_000000_create_users_table', 1),
+(126, '2014_10_12_100000_create_password_resets_table', 1),
+(127, '2018_03_23_231940_create_channels_table', 1),
+(128, '2018_03_24_001025_create_conversations_table', 1),
+(129, '2018_03_24_001050_create_answers_table', 1),
+(130, '2018_03_26_185837_add_foreign_to_conversations_table', 1),
+(131, '2018_03_26_201853_add_foreign_to_answers_table', 1),
+(132, '2018_03_28_112501_create_likes_table', 1),
+(133, '2018_03_28_115218_add_foreign_to_likes_table', 1),
+(134, '2018_04_01_131755_create_attachments_table', 1),
+(135, '2018_04_01_132700_foreing_for_attachments', 1);
 
 -- --------------------------------------------------------
 
@@ -172,7 +183,7 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg',
+  `karma` bigint(20) NOT NULL DEFAULT '10',
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -184,11 +195,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'http://localhost/avatars/avatar.jpg', 'admin@admin.lt', '$2y$10$pLZz9.HGrrD.Of/sjdJ4QereCPkmpmug9zP4hb5nYg8h55aYeJwdG', 'WjSZfIrBFWEFUUsV9YhMCiezbR8kNuP4xEAiCW7AhfCEV78hckxEcMdxYcmR', '2018-03-29 09:05:53', '2018-03-29 09:05:53'),
-(2, 'Vardenis', 'http://localhost/storage/avatar.jpg', 'vardenis@pavardenis.lt', '$2y$10$Lpw6JpNunb/JfIEejZXzJOQdtdkedVyHdVAX9S.drbeobwxDwl01a', NULL, NULL, NULL),
-(3, 'Antanas', 'http://localhost/storage/avatar2.jpg', 'vardenis@pavardeniss.lt', '$2y$10$R1rf2Eo9m8UIum6fjLpSG.5p6QkOTDM1gFlJARD3FqaBM3zQWjRoy', NULL, NULL, NULL),
-(4, 'Alvydas', 'http://localhost/avatars/avatar.jpg', 'vardeniss@pavardenis.lt', '$2y$10$qvhaCP21olmOjTY64ErQQumQzfvm4xEItcqEdgmk0jYqa3XzohP.S', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `karma`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 10, 'admin@admin.lt', '$2y$10$a2X26aJwDCv1f3Sk6fV.5OsAzh7gUswbG4tCT.t9XfWrOzUsEUuQG', '2uWXhssN9SVz89m0KNGpLwLiuVdlmydP5JXtM8PYH1FvXYlNpor6KNTV98hm', NULL, NULL),
+(2, 'Vardenis', 10, 'vardenis@pavardenis.lt', '$2y$10$sbF5Z/i6ODnVxX6U7IsZe.2NHXHfVabXu3FDJfXxgybu030DySUuO', NULL, NULL, NULL),
+(3, 'Antanas', 10, 'vardenis@pavardeniss.lt', '$2y$10$wQQDvXt3s2.BjtiXctI7W..GAXmcI59dF8rPRmjCSHgXMnjPFHSWS', NULL, NULL, NULL),
+(4, 'Alvydas', 10, 'vardeniss@pavardenis.lt', '$2y$10$fWdPiI8.Gp3kIq0OGAwhwOyFscAd9MaDe5jQ1hO5Y7mPBz0RFPZve', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -201,6 +212,12 @@ ALTER TABLE `answers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `answers_conversation_id_foreign` (`conversation_id`),
   ADD KEY `answers_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `attachments`
+--
+ALTER TABLE `attachments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `channels`
@@ -254,6 +271,12 @@ ALTER TABLE `answers`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `attachments`
+--
+ALTER TABLE `attachments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `channels`
 --
 ALTER TABLE `channels`
@@ -269,13 +292,13 @@ ALTER TABLE `conversations`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `users`
